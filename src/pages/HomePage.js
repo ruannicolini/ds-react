@@ -1,7 +1,8 @@
 import { FeatureRow } from "../components/FeatureRow";
+import { SobreNos } from "../components/SobreNos";
+import { Quote } from "../components/Quote";
 
 import FeatureRowImage from '../assets/mascot.png';
-import { SobreNos } from "../components/SobreNos";
 
 export function HomePage(props) {
 
@@ -22,6 +23,8 @@ export function HomePage(props) {
                 heading={textContent.featureRow.heading}
                 subHeading={textContent.featureRow.subHeading}
                 image={FeatureRowImage}/>
+
+            <Quote/>
 
             <SobreNos heading={textContent.sobreNos.heading} content={textContent.sobreNos.content}/>
         </>
