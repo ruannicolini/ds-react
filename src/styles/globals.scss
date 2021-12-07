@@ -1,8 +1,10 @@
 :root {
   --first-color: #58305F;
-  --second-color: #E6E0E7;
+  --second-color: #CCC3CE;
   --text-color: #101010;
   --background: #FFFFFF;
+  --second-background: #E6E0E7;
+  --third-background: #F5F3F5;
   --max-width-container: 1310px;
 }
 
@@ -44,4 +46,9 @@ button {
 [disabled] {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.container {
+  max-width: var(--max-width-container);
+  margin: 0 auto;
 }
