@@ -1,7 +1,14 @@
 import './styles.scss';
 
-export function QuoteForm(props) {
+export function QuoteForm({textContent, ...props}) {
+
+    const { heading, inputs, buttonText } = textContent;
+
+    // console.log('heading',heading );
+    // console.log('buttonText',buttonText );
+    // console.log('inputs',inputs );
+
     return (
-        <div></div>
+        <div className="quote-form"></div>
     );
 }
