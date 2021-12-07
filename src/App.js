@@ -1,8 +1,14 @@
+import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
+import './styles/globals.scss';
+
 function App() {
   return (
-    <div>
-      <h1>TESTANDO..</h1>
-    </div>
+    <>
+      <Header/>
+
+      <Footer/>
+    </>
   );
 }
 

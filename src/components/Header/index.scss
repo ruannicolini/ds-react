@@ -1,0 +1,20 @@
+
+.header {
+    background: var(--first-color);
+    text-align: center;
+    padding: 32px;
+
+    svg {
+        top: 3px;
+        position: relative;
+    
+    }
+
+    @media (max-width:768px){
+        padding: 22px;
+        svg {
+            max-width: 180px;
+        }
+    }
+}
+
