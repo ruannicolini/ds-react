@@ -7,6 +7,7 @@ import 'swiper/swiper.scss';
 import "swiper/modules/effect-cards/effect-cards.scss";
 
 import './styles.scss';
+import { ProductCard } from '../ProductCard';
 
 export function QuoteProducts({textContent, ...props}) {
 
@@ -33,8 +34,8 @@ export function QuoteProducts({textContent, ...props}) {
 
                     {items && items.map( (item, index) => {
                         return (
-                            <SwiperSlide key={item.name} style={ { background: tint( (index/10), cssVar('--first-color') ) } }>
-                                {item.name}
+                            <SwiperSlide key={item.name}>
+                                <ProductCard item={item} backgroundColorStyle={ tint( (index/10), cssVar('--first-color') ) } />
                             </SwiperSlide>
                         );
                     }) }

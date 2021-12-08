@@ -1,0 +1,83 @@
+.product-card {
+    font-family: 'Fauna One';
+    font-weight: normal;
+    color: #FFFFFF;
+    letter-spacing: -1px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+
+    height: 100%;
+    width: 100%;
+    padding: 20px 20px 50px;
+
+    &__name {
+        font-size: 26px;
+        line-height: 36px;
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+
+    &__info {
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        width: 100%;
+        display: block;
+        margin-top: 20px;
+    }
+
+    &-qty {
+        margin-top: 50px;
+        
+        
+        /* identical to box height, or 108% */
+        
+        input {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: bold;
+            font-size: 17px;
+            line-height: 30px;
+            text-align: center;
+            letter-spacing: -1px;
+            color: #FFFFFF;
+            width: 50px;
+            border: 1px solid;
+            border-radius: 18px;
+            padding: 0;
+            position: relative;
+            top: -2px;
+        }
+
+        input[type='number']::-webkit-inner-spin-button, 
+        input[type='number']::-webkit-outer-spin-button { 
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        span {
+            font-size: 20px;
+            line-height: 30px;
+            position: relative;
+            top: -1px;
+        }
+
+        button {
+            background: #DBBEE0;
+            border: none;
+            font-size: 28px;
+            line-height: 28px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            padding: 0px 0px 2px;
+            margin: 0 8px;
+        }
+
+    }
+}
