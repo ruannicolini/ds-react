@@ -19,8 +19,10 @@ export function HomePage(props) {
                     { name: "Coxinha", additionalInfo: "Recheio de frango", price: .23 },
                     { name: "Pastel", additionalInfo: "Recheio de carne", price: .23 },
                     { name: "Bolinha de queijo", additionalInfo: "Recheio de Queijo", price: .43 },
+                    { name: "Bolinha de bacalhau", additionalInfo: "Recheio de bacalhau", price: .43 },
                     { name: "Quibe", additionalInfo: "Recheio de carne", price: .53 },
-                    { name: "Croquete", additionalInfo: "Recheio de queijo e presunto", price: .60 } 
+                    { name: "Croquete", additionalInfo: "Recheio de queijo e presunto", price: .60 },
+                    { name: "Croquete de calabresa", additionalInfo: "Recheio de calabresa", price: .60 } 
                 ]
             },
             form: {
