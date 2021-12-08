@@ -1,7 +1,7 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
-
 import SwiperCore, {EffectCards} from 'swiper';
+import { cssVar, tint } from 'polished';
 
 import 'swiper/swiper.scss';
 import "swiper/modules/effect-cards/effect-cards.scss";
@@ -12,7 +12,7 @@ export function QuoteProducts({textContent, ...props}) {
 
     const { heading, subHeading, items } = textContent;
 
-    SwiperCore.use([EffectCards]); // 
+    SwiperCore.use([EffectCards]);
 
     return (
 
@@ -24,21 +24,20 @@ export function QuoteProducts({textContent, ...props}) {
             </div>
             
             <div className="quote-products__items">
-                <Swiper effect={'cards'} grabCursor={true} className="mySwiper">
-                    {items && items.map( item => {
-                        return <SwiperSlide key={item.name}>{item.name}</SwiperSlide>;
+                <Swiper 
+                    effect={'cards'} 
+                    grabCursor={true} 
+                    className="mySwiper"
+                    onSlideChange={(slider) => console.log('slide change',slider)}
+                    >
+
+                    {items && items.map( (item, index) => {
+                        return (
+                            <SwiperSlide key={item.name} style={ { background: tint( (index/10), cssVar('--first-color') ) } }>
+                                {item.name}
+                            </SwiperSlide>
+                        );
                     }) }
-
-                    {/* <SwiperSlide>Slide 1</SwiperSlide>
-                    <SwiperSlide>Slide 2</SwiperSlide>
-                    <SwiperSlide>Slide 3</SwiperSlide>
-                    <SwiperSlide>Slide 4</SwiperSlide>
-                    <SwiperSlide>Slide 5</SwiperSlide>
-                    <SwiperSlide>Slide 6</SwiperSlide>
-                    <SwiperSlide>Slide 7</SwiperSlide>
-                    <SwiperSlide>Slide 8</SwiperSlide>
-                    <SwiperSlide>Slide 9</SwiperSlide> */}
-
                 </Swiper>
             </div>
         </div>
