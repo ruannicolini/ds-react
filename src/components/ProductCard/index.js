@@ -2,7 +2,7 @@ import './styles.scss';
 
 export function ProductCard({item, backgroundColorStyle}) {
 
-    const { name, additionalInfo } = item; 
+    const { name, additionalInfo } = item;
     
     return (
         <div className="product-card" style={ { backgroundColor: backgroundColorStyle } }>

@@ -3,15 +3,18 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import SwiperCore, {EffectCards} from 'swiper';
 import { cssVar, tint } from 'polished';
 
+import { ProductCard } from '../ProductCard';
+import { useQuotes } from '../../hooks/useQuote';
+
 import 'swiper/swiper.scss';
 import "swiper/modules/effect-cards/effect-cards.scss";
-
 import './styles.scss';
-import { ProductCard } from '../ProductCard';
 
-export function QuoteProducts({textContent, ...props}) {
+export function QuoteProducts({textContent}) {
 
-    const { heading, subHeading, items } = textContent;
+    const { heading, subHeading } = textContent;
+
+    const { products } = useQuotes();
 
     SwiperCore.use([EffectCards]);
 
@@ -32,10 +35,10 @@ export function QuoteProducts({textContent, ...props}) {
                     onSlideChange={(slider) => console.log('slide change',slider)}
                     >
 
-                    {items && items.map( (item, index) => {
+                    {products && products.map( (item, index) => {
                         return (
                             <SwiperSlide key={item.name}>
-                                <ProductCard item={item} backgroundColorStyle={ tint( (index/10), cssVar('--first-color') ) } />
+                                <ProductCard item={item} backgroundColorStyle={ tint( (index/10), cssVar('--first-color') ) }/>
                             </SwiperSlide>
                         );
                     }) }
