@@ -20,7 +20,6 @@ export function QuoteProvider({children}) {
     useEffect( () => {
 
         var quoteQty = {};
-
         products.map(item => { 
             quoteQty[item.name] = 0;
         });
@@ -30,9 +29,7 @@ export function QuoteProvider({children}) {
     }, []);
 
     const updateQty = (productName, newQty) => {
-
         setQuotes({ ...quotes, [productName]: newQty });
-
     }
 
     return(
