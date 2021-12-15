@@ -1,10 +1,60 @@
 .quote-form {
 
     background: var(--third-background);
-    height: 200px;
+
+    &__footer-line,
+    &__second-footer-line {
+        background: var(--first-color);
+        height: 45px;
+    }
+
+    &__second-footer-line {
+        margin-top: 6px;
+        display: none;
+    }
+
+    &__content {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__image {
+        width: 100%;
+        display: block;
+        position: relative;
+        top: 36px;
+    }
+
+    &__image-wrapper {
+        display: none;
+    }
+
+    &__form-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__form {
+        max-width: 300px;
+    }
     
     @media (min-width:769px) {
-        
+
+        &__second-footer-line {
+            display: block;
+        }
+
+        &__image-wrapper {
+            display: block;
+            width: 35%;
+        }
+
+        &__form-wrapper {
+            width: 65%;
+        }
     }
 
 }
