@@ -1,10 +1,11 @@
 import salgadoImage from '../../assets/salgado.png';
+import { WhatsappButton } from '../../components/Form/WhatsappButton';
 
 import './styles.scss';
 
 export function QuoteForm({textContent, ...props}) {
 
-    const { heading, inputs, buttonText } = textContent;
+    const { heading, inputs, buttonText, whatsappNumber } = textContent;
 
     // console.log('heading',heading );
     // console.log('buttonText',buttonText );
@@ -24,6 +25,8 @@ export function QuoteForm({textContent, ...props}) {
                         {inputs && inputs.map( (inp) => (
                             inp
                         ))};
+
+                        <WhatsappButton label={buttonText} whatsappNumber={whatsappNumber} text="apenas um teste" formValidate={true} />
 
                     </div>
                 </div>

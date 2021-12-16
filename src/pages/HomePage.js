@@ -19,6 +19,7 @@ export function HomePage(props) {
             form: {
                 heading: "Solicitar Orçamento",
                 inputs: ["Nome", "Data", "Telefone de contato"],
+                whatsappNumber: "559999999",
                 buttonText: "Enviar" 
             }
         },
