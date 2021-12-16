@@ -1,9 +1,12 @@
 import salgadoImage from '../../assets/salgado.png';
 import { WhatsappButton } from '../../components/Form/WhatsappButton';
+import { useQuotes } from '../../hooks/useQuote';
 
 import './styles.scss';
 
 export function QuoteForm({textContent, ...props}) {
+
+    const { quoteRequestText } = useQuotes();
 
     const { heading, inputs, buttonText, whatsappNumber } = textContent;
 
@@ -20,13 +23,13 @@ export function QuoteForm({textContent, ...props}) {
                 </div>
                 <div className="quote-form__form-wrapper">
                     <div className="quote-form__form">
-                        <h2 class="quote-form__heading">{heading}</h2>
+                        <h2 className="quote-form__heading">{heading}</h2>
 
                         {inputs && inputs.map( (inp) => (
                             inp
                         ))};
 
-                        <WhatsappButton label={buttonText} whatsappNumber={whatsappNumber} text="apenas um teste" formValidate={true} />
+                        <WhatsappButton label={buttonText} whatsappNumber={whatsappNumber} text={quoteRequestText} formValidate={true} />
 
                     </div>
                 </div>
