@@ -11,7 +11,7 @@ export function ProductCard({item, backgroundColorStyle}) {
     const handleChangeQty = (event, name, typeOp) => {
         event.preventDefault();
         let currentValue = quotes[name];
-        let newValue = (typeOp == 'minus') ? currentValue - 1 : currentValue + 1;
+        let newValue = (typeOp == 'minus') ? currentValue - 5 : currentValue + 5;
         updateQty(name, newValue);
     }
     

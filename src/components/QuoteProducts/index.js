@@ -32,6 +32,7 @@ export function QuoteProducts({textContent}) {
                     effect={'cards'} 
                     grabCursor={true} 
                     className="mySwiper"
+                    shortSwipes={false}
                     onSlideChange={(slider) => console.log('slide change',slider)}
                     >
 
