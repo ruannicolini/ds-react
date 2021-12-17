@@ -71,6 +71,7 @@ export function QuoteProvider({children}) {
     }, [quotes]);
 
     const updateQty = (productName, newQty) => {
+        if(newQty < 0) newQty = 0;
         setQuotes({ ...quotes, [productName]: newQty });
     }
 
