@@ -24,9 +24,6 @@ export function QuoteProvider({children}) {
         let quoteString = "";
 
         if(quotes){
-
-            quoteString = "*Pedido/Orçamento* \n";
-
             let productText = products.map( ({name, price}) => {
                 let qty = quotes[name];
                 let value = qty * price;
@@ -37,13 +34,10 @@ export function QuoteProvider({children}) {
                 let auxText = '- ' + name + ': ' + qty + 'UN \n';
                 return ( (qty > 0) ? auxText : '');
             }).join('') ;
-            
             quoteString += productText.toString();
         }
 
-        let whatsappProductMessage = window.encodeURIComponent(quoteString);
-
-        return whatsappProductMessage;
+        return quoteString;
     };
 
     useEffect( () => {
