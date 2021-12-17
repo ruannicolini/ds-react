@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import salgadoImage from '../../assets/salgado.png';
 import { WhatsappButton } from '../../components/Form/WhatsappButton';
+import { Input } from '../../components/Form/Input';
 import { useQuotes } from '../../hooks/useQuote';
 
 import './styles.scss';
@@ -55,6 +56,8 @@ export function QuoteForm({textContent, ...props}) {
 
     },[clientName, date, hour, location, deliverNow, quoteRequestText]);
 
+    console.log(inputs);
+
     return (
         <div className="quote-form">
 
@@ -68,8 +71,9 @@ export function QuoteForm({textContent, ...props}) {
                         <h2 className="quote-form__heading">{heading}</h2>
 
                         {inputs && inputs.map( (inp) => (
-                            inp
-                        ))};
+                            
+                            <Input name={inp} />
+                        ))}
 
                         <WhatsappButton label={buttonText} whatsappNumber={whatsappNumber} text={whatsappText} formValidate={true} />
 

@@ -1,0 +1,25 @@
+
+.input {
+    background: var(--first-color);
+    padding: 19px 12px 17px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    
+    input {
+        background: var(--second-color);
+        border-radius: 25px;
+        border: none;
+        padding: 14px 24px;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: -1px;
+        color: #6B3578;
+        font-weight: bold;
+        max-width: 100%;
+    }
+
+    input::placeholder{
+        color: #7b767d;
+    }
+
+}

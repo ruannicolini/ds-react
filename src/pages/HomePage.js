@@ -14,11 +14,11 @@ export function HomePage(props) {
         quote: {
             products: {
                 heading: "Monte seu combo",
-                subHeading: "... e solicite orçamento!"
+                subHeading: "... e faça seu pedido!"
             },
             form: {
                 heading: "Envie seu pedido pelo whatsapp!",
-                inputs: ["Nome", "Data", "Telefone de contato"],
+                inputs: ["Nome", "Data", "Hora", "Ponto de Referencia"],
                 whatsappNumber: "5527997506865",
                 buttonText: "Enviar" 
             }

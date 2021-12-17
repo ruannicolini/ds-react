@@ -1,6 +1,13 @@
 .quote-form {
 
-    background: var(--third-background);
+    &__heading {
+        font-weight: bold;
+        font-size: 34px;
+        line-height: 44px;
+        margin-bottom: 30px;
+        text-align: center;
+        letter-spacing: -1px;
+    }
 
     &__footer-line,
     &__second-footer-line {
@@ -35,6 +42,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-bottom: 80px;
+
+        .input:last-of-type {
+            margin-bottom: 30px;
+        }
     }
 
     &__form {
@@ -42,6 +54,8 @@
     }
     
     @media (min-width:769px) {
+
+        background: var(--third-background);
 
         &__second-footer-line {
             display: block;
@@ -54,6 +68,7 @@
 
         &__form-wrapper {
             width: 65%;
+            margin-top: 80px;
         }
     }
 
