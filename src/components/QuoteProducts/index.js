@@ -14,7 +14,7 @@ export function QuoteProducts({textContent}) {
 
     const { heading, subHeading } = textContent;
 
-    const { products } = useQuotes();
+    const { products, total } = useQuotes();
 
     SwiperCore.use([EffectCards]);
 
@@ -44,6 +44,9 @@ export function QuoteProducts({textContent}) {
                         );
                     }) }
                 </Swiper>
+
+                <div className="quote-products__total">{(total && (total > 0)) ? 'Total: ' + (new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL'}).format(total)) : ' ' }</div>
+
             </div>
         </div>
     );

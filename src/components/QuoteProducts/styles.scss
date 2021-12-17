@@ -25,13 +25,22 @@
 
     &__items {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         margin-top: 40px;
     }
+
+    &__total {
+        margin-top: 30px;
+        font-size: 16px;
+        min-height: 20px;
+        color: thistle;
+        font-weight: bold;
+    }
     
     @media (min-width:769px) {
-        padding: 130px 50px 200px;
+        padding: 130px 50px 130px;
 
         &__header {
             max-width: 480px;
@@ -48,6 +57,10 @@
 
         &__items {
           margin-top: 80px;
+        }
+
+        &__total {
+            margin-top: 50px;
         }
     }
 

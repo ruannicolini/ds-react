@@ -17,7 +17,9 @@ export function QuoteProvider({children}) {
 
     const [quotes, setQuotes] = useState([]);
 
-    const [quoteRequestText, setQuoteRequestText] = useState([]);
+    const [total, setTotal] = useState(0);
+
+    const [quoteRequestText, setQuoteRequestText] = useState();
 
     const buildProductText = () => {
 
@@ -43,6 +45,7 @@ export function QuoteProvider({children}) {
     useEffect( () => {
 
         var quoteQty = {};
+
         products.map(item => { 
             quoteQty[item.name] = 0;
         });
@@ -52,7 +55,19 @@ export function QuoteProvider({children}) {
     }, []);
 
     useEffect( () => {
+
         setQuoteRequestText( buildProductText() );
+
+        if(quotes){
+            let total = products.reduce( (acumulador, valorAtual) => {
+                let {name, price} = valorAtual;
+                let qty = quotes[name];
+                let value = qty * price;
+                return acumulador + value;
+            }, 0);
+            setTotal(total);
+        }
+
     }, [quotes]);
 
     const updateQty = (productName, newQty) => {
@@ -60,7 +75,7 @@ export function QuoteProvider({children}) {
     }
 
     return(
-        <QuoteContext.Provider value={{ quotes, updateQty, products, quoteRequestText}}>
+        <QuoteContext.Provider value={{ quotes, total, updateQty, products, quoteRequestText}}>
             {children}
         </QuoteContext.Provider>
     )

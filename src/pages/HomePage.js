@@ -17,9 +17,9 @@ export function HomePage(props) {
                 subHeading: "... e solicite orçamento!"
             },
             form: {
-                heading: "Solicitar Orçamento",
+                heading: "Envie seu pedido pelo whatsapp!",
                 inputs: ["Nome", "Data", "Telefone de contato"],
-                whatsappNumber: "559999999",
+                whatsappNumber: "5527997506865",
                 buttonText: "Enviar" 
             }
         },

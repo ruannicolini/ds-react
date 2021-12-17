@@ -20,7 +20,7 @@ export function QuoteForm({textContent, ...props}) {
 
     const [whatsappText, setWhatsappText] = useState();
 
-    const { quoteRequestText } = useQuotes();
+    const { quoteRequestText, total } = useQuotes();
     
     const { heading, inputs, buttonText, whatsappNumber } = textContent;
 
@@ -31,17 +31,19 @@ export function QuoteForm({textContent, ...props}) {
         let productText = quoteRequestText;
 
         if(productText) {
-            message = "*Pedido/Orçamento!* \n";
+            message = 'Olá, gostaria de fazer um pedido!  \n\n';
+
+            message += "*Itens* \n";
 
             message += productText;
 
             message += ' \n';
 
-            message += '>> Valor Total: R$150,00 <<';
+            message += '>> Valor Total: *' + (new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL'}).format(total)) + '* <<';
 
             message += ' \n\n';
 
-            message += "*Nome: Lorem Lorem Lorem * \n";
+            message += "*Nome: Lorem Lorem Lorem* \n";
             message += "*Data: 16/12/2021* \n";
             message += "*Hora: 22:00* \n";
             message += "*Local: Lorem Lorem Lorem,93.* \n";
