@@ -18,7 +18,7 @@ export function HomePage(props) {
             },
             form: {
                 heading: "Envie seu pedido pelo whatsapp!",
-                inputs: ["Nome", "Data", "Hora", "Endereço", "Ponto de Referência"],
+                inputs: ["Nome", "Data de Entrega", "Hora", "Endereço", "Ponto de Referência"],
                 whatsappNumber: "5527997506865",
                 buttonText: "Enviar" 
             }

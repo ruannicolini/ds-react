@@ -51,6 +51,14 @@
 
     &__form {
         max-width: 300px;
+        text-align: center;
+    }
+
+    &__voltarAoCombo{
+        margin-bottom: 30px;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid;
     }
     
     @media (min-width:769px) {

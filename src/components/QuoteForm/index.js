@@ -11,6 +11,8 @@ export function QuoteForm({textContent, ...props}) {
 
     const [formData, setFormData] = useState({});
 
+    const [formValidate, setFormValidate] = useState(false);
+
     const [whatsappText, setWhatsappText] = useState();
 
     const { quoteRequestText, total } = useQuotes();
@@ -18,24 +20,30 @@ export function QuoteForm({textContent, ...props}) {
     const { heading, inputs, buttonText, whatsappNumber } = textContent;
 
     useEffect( () => {
-
         if(inputs) {
             let aux = {};
             inputs.map( (inp) => {
-                if(inp == "Data") {
+                if(inp == "Data de Entrega") {
                     let today = new Date();
                     aux[inp] = today.toISOString().substr(0, 10);
                 }else {
                     aux[inp] =  "";
                 }
-                
             });
             setFormData(aux);
         }
-
     }, [] );
 
     useEffect( () => {
+        setWhatsappText( biuldWhatsappText() );
+        setFormValidate( getFormValidation() );
+    },[formData, quoteRequestText]);
+
+    const getFormValidation = () => {
+        return ((formData["Nome"] !== "")&&(formData["Endereço"] !== "")&&(formData["Data de Entrega"] !== "")&&(formData["Hora"] !== "")&&(quoteRequestText !== ""));
+    }
+
+    const biuldWhatsappText = () => {
 
         let message = "";
 
@@ -54,18 +62,18 @@ export function QuoteForm({textContent, ...props}) {
 
             message += ' \n\n';
 
-            message += "*Nome: " + formData["Nome"] + "* \n";
-            message += "*Data: " + (new Intl.DateTimeFormat('pt-BR').format( new Date(formData["Data"]))) + "* \n";
-            message += "*Hora: " + formData["Hora"] + "* \n";
-            message += "*Endereço: " + formData["Endereço"] + "* \n";
-            message += "*Ponto de Referência: " + formData["Ponto de Referência"] + "* \n";
+            message += "*Nome: " + formData["Nome"] + " * \n ";
+            message += "*Data: " + (new Intl.DateTimeFormat('pt-BR').format( new Date(formData["Data de Entrega"]))) + " * \n ";
+            message += "*Hora: " + formData["Hora"] + " * \n";
+            message += "*Endereço: " + formData["Endereço"] + " * \n ";
+            message += (formData["Ponto de Referência"]) ? ("*Ponto de Referência: " + formData["Ponto de Referência"] + "* \n ") : '';
         }
 
         let whatsappMessage = window.encodeURIComponent(message);
 
-        setWhatsappText(whatsappMessage);
+        return whatsappMessage;
 
-    },[formData, quoteRequestText]);
+    }
 
     return (
         <div className="quote-form">
@@ -83,7 +91,9 @@ export function QuoteForm({textContent, ...props}) {
                             <Input key={inp} name={inp} value={formData[inp]} formData={formData} setFormData={setFormData} />
                         ))}
 
-                        <WhatsappButton label={buttonText} whatsappNumber={whatsappNumber} text={whatsappText} formValidate={true} />
+                        { !quoteRequestText && <p>Parece que você ainda não escolheu os produtos <a href="#combo" className="quote-form__voltarAoCombo" >Click aqui!</a></p> }
+
+                        <WhatsappButton label={buttonText} whatsappNumber={whatsappNumber} text={whatsappText} formValidate={formValidate} />
 
                     </div>
                 </div>

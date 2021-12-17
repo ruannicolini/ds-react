@@ -20,7 +20,7 @@ export function QuoteProducts({textContent}) {
 
     return (
 
-        <div className="quote-products">
+        <div id="combo" className="quote-products">
 
             <div className="quote-products__header">
                 <h2>{heading}</h2>
