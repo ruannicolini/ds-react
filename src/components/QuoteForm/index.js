@@ -9,21 +9,31 @@ import './styles.scss';
 
 export function QuoteForm({textContent, ...props}) {
 
-    const [clientName, setclientName] = useState();
-
-    const [date, setDate] = useState();
-
-    const [hour, setHour] = useState();
-
-    const [location, setLocation] = useState();
-
-    const [deliverNow, setDeliverNow] = useState();
+    const [formData, setFormData] = useState({});
 
     const [whatsappText, setWhatsappText] = useState();
 
     const { quoteRequestText, total } = useQuotes();
     
     const { heading, inputs, buttonText, whatsappNumber } = textContent;
+
+    useEffect( () => {
+
+        if(inputs) {
+            let aux = {};
+            inputs.map( (inp) => {
+                if(inp == "Data") {
+                    let today = new Date();
+                    aux[inp] = today.toISOString().substr(0, 10);
+                }else {
+                    aux[inp] =  "";
+                }
+                
+            });
+            setFormData(aux);
+        }
+
+    }, [] );
 
     useEffect( () => {
 
@@ -44,19 +54,18 @@ export function QuoteForm({textContent, ...props}) {
 
             message += ' \n\n';
 
-            message += "*Nome: Lorem Lorem Lorem* \n";
-            message += "*Data: 16/12/2021* \n";
-            message += "*Hora: 22:00* \n";
-            message += "*Local: Lorem Lorem Lorem,93.* \n";
+            message += "*Nome: " + formData["Nome"] + "* \n";
+            message += "*Data: " + (new Intl.DateTimeFormat('pt-BR').format( new Date(formData["Data"]))) + "* \n";
+            message += "*Hora: " + formData["Hora"] + "* \n";
+            message += "*Endereço: " + formData["Endereço"] + "* \n";
+            message += "*Ponto de Referência: " + formData["Ponto de Referência"] + "* \n";
         }
 
         let whatsappMessage = window.encodeURIComponent(message);
 
         setWhatsappText(whatsappMessage);
 
-    },[clientName, date, hour, location, deliverNow, quoteRequestText]);
-
-    console.log(inputs);
+    },[formData, quoteRequestText]);
 
     return (
         <div className="quote-form">
@@ -71,8 +80,7 @@ export function QuoteForm({textContent, ...props}) {
                         <h2 className="quote-form__heading">{heading}</h2>
 
                         {inputs && inputs.map( (inp) => (
-                            
-                            <Input name={inp} />
+                            <Input key={inp} name={inp} value={formData[inp]} formData={formData} setFormData={setFormData} />
                         ))}
 
                         <WhatsappButton label={buttonText} whatsappNumber={whatsappNumber} text={whatsappText} formValidate={true} />
