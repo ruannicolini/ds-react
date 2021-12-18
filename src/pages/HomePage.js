@@ -18,7 +18,7 @@ export function HomePage(props) {
             },
             form: {
                 heading: "Envie seu pedido pelo whatsapp!",
-                inputs: ["Nome", "Data de Entrega", "Hora", "Endereço", "Ponto de Referência", "Forma de Pagamento"],
+                inputs: ["Nome", "Data de Entrega", "Hora", "Endereço de Entrega", "Ponto de Referência", "Forma de Pagamento"],
                 whatsappNumber: "5527997506865",
                 defaultPaymentMethod: "Dinheiro",
                 buttonText: "Enviar" 

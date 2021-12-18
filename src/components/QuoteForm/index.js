@@ -21,16 +21,22 @@ export function QuoteForm({textContent, ...props}) {
     const { heading, inputs, buttonText, whatsappNumber, defaultPaymentMethod } = textContent;
 
     useEffect( () => {
+    
+        let storedData = localStorage.getItem("@disalgados/CustomerInfo");
+        let lastOrderData = JSON.parse(storedData);
+
         if(inputs) {
             let aux = {};
             inputs.map( (inp) => {
                 if(inp == "Data de Entrega") {
                     let today = new Date();
                     aux[inp] = today.toISOString().substr(0, 10);
+                }else if (inp == "Hora") {
+                    aux[inp] =  "";
                 }else if (inp == "Forma de Pagamento") {
                     aux[inp] =  defaultPaymentMethod;
                 } else {
-                    aux[inp] =  "";
+                    aux[inp] =  (lastOrderData && lastOrderData[inp]) ? lastOrderData[inp] : "";
                 }
             });
             setFormData(aux);
@@ -38,12 +44,17 @@ export function QuoteForm({textContent, ...props}) {
     }, [] );
 
     useEffect( () => {
+
         setWhatsappText( biuldWhatsappText() );
+
         setFormValidate( getFormValidation() );
+
+        localStorage.setItem('@disalgados/CustomerInfo', JSON.stringify(formData));
+
     },[formData, quoteRequestText]);
 
     const getFormValidation = () => {
-        return ((formData["Nome"] !== "")&&(formData["Endereço"] !== "")&&(formData["Data de Entrega"] !== "")&&(formData["Hora"] !== "")&&(formData["Forma de Pagamento"] !== "")&&(quoteRequestText !== ""));
+        return ((formData["Nome"] !== "")&&(formData["Endereço de Entrega"] !== "")&&(formData["Data de Entrega"] !== "")&&(formData["Hora"] !== "")&&(formData["Forma de Pagamento"] !== "")&&(quoteRequestText !== ""));
     }
 
     const biuldWhatsappText = () => {
@@ -70,7 +81,7 @@ export function QuoteForm({textContent, ...props}) {
             message += "Nome: " + formData["Nome"] + "\n";
             message += "Data: " + (new Intl.DateTimeFormat('pt-BR').format( new Date(formData["Data de Entrega"]))) + "\n";
             message += "Hora: " + formData["Hora"] + "\n";
-            message += "Endereço: " + formData["Endereço"] + "\n";
+            message += "Endereço: " + formData["Endereço de Entrega"] + "\n";
             message += (formData["Ponto de Referência"]) ? ("Ponto de Referência: " + formData["Ponto de Referência"] + "\n") : '';
             message += "Forma de Pagamento: " + formData["Forma de Pagamento"] + "\n";
         }
