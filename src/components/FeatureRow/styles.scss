@@ -66,4 +66,18 @@
     
         }
     }
+
+    @media (max-width:360px) {
+        &-text-wrapper { 
+            h2 {
+                font-size: 18px;
+                line-height: 28px;
+            }
+    
+            p {
+                font-size: 16px;
+                line-height: 50px;
+            }
+        }
+    }
 }
