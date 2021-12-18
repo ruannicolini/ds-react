@@ -1,0 +1,37 @@
+
+.select {
+    position: relative;
+    background: var(--first-color);
+    padding: 30px 12px 25px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+
+    label {
+        font-size: 14px;
+        line-height: 14px;
+        color: var(--second-color);
+        position: absolute;
+        top: 7px;
+        left: 20px;
+    }
+    
+    select {
+        background: var(--second-color);
+        border-radius: 25px;
+        border: none;
+        padding: 14px 24px;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: -1px;
+        color: #6B3578;
+        font-weight: bold;
+        width: 100%;
+        max-width: 100%;
+        text-transform: capitalize;
+    }
+
+    select::placeholder{
+        color: #7b767d;
+    }
+
+}
