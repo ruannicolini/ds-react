@@ -62,11 +62,13 @@ export function QuoteForm({textContent, ...props}) {
 
             message += ' \n\n';
 
-            message += "*Nome: " + formData["Nome"] + " * \n ";
-            message += "*Data: " + (new Intl.DateTimeFormat('pt-BR').format( new Date(formData["Data de Entrega"]))) + " * \n ";
-            message += "*Hora: " + formData["Hora"] + " * \n";
-            message += "*Endereço: " + formData["Endereço"] + " * \n ";
-            message += (formData["Ponto de Referência"]) ? ("*Ponto de Referência: " + formData["Ponto de Referência"] + "* \n ") : '';
+            message += "*Informações* \n";
+
+            message += "Nome: " + formData["Nome"] + "\n";
+            message += "Data: " + (new Intl.DateTimeFormat('pt-BR').format( new Date(formData["Data de Entrega"]))) + "\n";
+            message += "Hora: " + formData["Hora"] + "\n";
+            message += "Endereço: " + formData["Endereço"] + "\n";
+            message += (formData["Ponto de Referência"]) ? ("Ponto de Referência: " + formData["Ponto de Referência"] + "\n") : '';
         }
 
         let whatsappMessage = window.encodeURIComponent(message);
@@ -92,6 +94,8 @@ export function QuoteForm({textContent, ...props}) {
                         ))}
 
                         { !quoteRequestText && <p>Parece que você ainda não escolheu os produtos <a href="#combo" className="quote-form__voltarAoCombo" >Click aqui!</a></p> }
+
+                        { (quoteRequestText && !formValidate) && <p className="quote-form__info-error" >Informe todos os dados acima para prosseguir</p> }
 
                         <WhatsappButton label={buttonText} whatsappNumber={whatsappNumber} text={whatsappText} formValidate={formValidate} />
 

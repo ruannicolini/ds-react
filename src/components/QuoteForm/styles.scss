@@ -61,6 +61,11 @@
         border-bottom: 1px solid;
     }
     
+    &__info-error {
+        margin-bottom: 30px;
+        color: brown;
+    }
+
     @media (min-width:769px) {
 
         background: var(--third-background);

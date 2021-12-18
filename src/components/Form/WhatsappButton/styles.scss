@@ -9,12 +9,17 @@
     text-align: center;
     letter-spacing: -1px;
     width: 100%;
-    padding: 20px;
+    padding: 26px 20px;
     border: none;
     border-radius: 25px;
     text-transform: uppercase;
-    border-bottom: 10px solid #CCC3CE;
+    border-bottom: 20px solid #CCC3CE;
     border-bottom-left-radius: 25px;
+
+    &.disabled {
+        pointer-events: none;
+        cursor: default;
+    }
 
     span {
         padding-right: 40px;

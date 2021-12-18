@@ -9,7 +9,7 @@ export function HomePage(props) {
     const textContent = {
         featureRow: {
             heading: "Entre em contato conosco",
-            subHeading: "(33)99999-8888"
+            subHeading: "(33)99937-8423"
         },
         quote: {
             products: {
