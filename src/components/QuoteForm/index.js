@@ -120,6 +120,10 @@ export function QuoteForm({textContent, ...props}) {
 
                         <WhatsappButton label={buttonText} whatsappNumber={whatsappNumber} text={whatsappText} formValidate={formValidate} />
 
+                        <p className="quote-form__info-add" >* Entregas apenas para Resplendor-MG *</p>
+
+                        <p className="quote-form__info-add">* Valor sujeito a ateração *</p>
+
                     </div>
                 </div>
             </div>

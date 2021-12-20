@@ -66,6 +66,12 @@
         color: brown;
     }
 
+    &__info-add {
+        margin-top: 6px;
+        font-size: 14px;
+        color: brown;
+    }
+
     @media (min-width:769px) {
 
         background: var(--third-background);
