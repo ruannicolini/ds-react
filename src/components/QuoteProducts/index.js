@@ -32,7 +32,8 @@ export function QuoteProducts({textContent}) {
                     effect={'cards'} 
                     grabCursor={true} 
                     className="mySwiper"
-                    shortSwipes={false}
+                    // shortSwipes={false}
+                    threshold={18} // Change swiper slide after 18px
                     onSlideChange={(slider) => console.log('slide change',slider)}
                     >
 
