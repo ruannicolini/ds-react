@@ -4,16 +4,16 @@ import { createContext, ReactNode, useContext, useEffect, useState } from "react
 const QuoteContext = createContext();
 
 const products = [
-    { name: "Coxinha", additionalInfo: "Recheio: frango", price: .40},
-    { name: "Pastel", additionalInfo: "Recheio: carne moída", price: .40},
-    { name: "Bolinha de queijo", additionalInfo: "Recheio: queijo com milho", price: .40},
-    { name: "Bolinha de alho frito", additionalInfo: "Recheio: queijo com alho", price: .40},
-    { name: "Bolinha de alho poró", additionalInfo: "Recheio: queijo com alho poró", price: .40},
-    { name: "Bolinha de bacalhau", additionalInfo: "Contém bacalhau e batata", price: .40},
-    { name: "Quibe", additionalInfo: "Contém carne e especiarias", price: .40},
-    { name: "Croquete", additionalInfo: "Recheio: queijo e presunto", price: .40},
-    { name: "Croquete de calabresa", additionalInfo: "Contém calabresa", price: .40},
-    { name: "Enroladinho de Salsicha", additionalInfo: "Recheio: salsicha", price: .40}
+    { name: "Coxinha 20g", additionalInfo: "Recheio: frango", price: .40},
+    { name: "Pastel 20g", additionalInfo: "Recheio: carne moída", price: .40},
+    { name: "Bolinha de queijo 20g", additionalInfo: "Recheio: queijo com milho", price: .40},
+    { name: "Bolinha de alho frito 20g", additionalInfo: "Recheio: queijo com alho", price: .40},
+    { name: "Bolinha de alho-poró 20g", additionalInfo: "Recheio: queijo com alho poró", price: .40},
+    { name: "Bolinha de bacalhau 20g", additionalInfo: "Contém bacalhau e batata", price: .40},
+    { name: "Quibe 20g", additionalInfo: "Contém carne e especiarias", price: .40},
+    { name: "Croquete 20g", additionalInfo: "Recheio: queijo e presunto", price: .40},
+    { name: "Croquete de calabresa 20g", additionalInfo: "Contém calabresa", price: .40},
+    { name: "Enroladinho de Salsicha 20g", additionalInfo: "Recheio: salsicha", price: .40}
 ]
 
 export function QuoteProvider({children}) {
