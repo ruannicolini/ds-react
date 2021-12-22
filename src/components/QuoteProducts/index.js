@@ -1,6 +1,6 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
-import SwiperCore, {EffectCards} from 'swiper';
+import SwiperCore, {EffectCards, Keyboard } from 'swiper';
 import { cssVar, tint } from 'polished';
 
 import { ProductCard } from '../ProductCard';
@@ -18,6 +18,8 @@ export function QuoteProducts({textContent}) {
 
     SwiperCore.use([EffectCards]);
 
+    SwiperCore.use([Keyboard]);
+
     return (
 
         <div id="combo" className="quote-products">
@@ -32,6 +34,7 @@ export function QuoteProducts({textContent}) {
                     effect={'cards'} 
                     grabCursor={true} 
                     className="mySwiper"
+                    keyboard= { {enabled: true} }
                     // shortSwipes={false}
                     threshold={18} // Change swiper slide after 18px
                     onSlideChange={(slider) => console.log('slide change',slider)}
@@ -40,7 +43,7 @@ export function QuoteProducts({textContent}) {
                     {products && products.map( (item, index) => {
                         return (
                             <SwiperSlide key={item.name}>
-                                <ProductCard item={item} backgroundColorStyle={ tint( (index/10), cssVar('--first-color') ) }/>
+                                <ProductCard item={item} backgroundColorStyle={ tint( (index/18), cssVar('--first-color') ) }/>
                             </SwiperSlide>
                         );
                     }) }
