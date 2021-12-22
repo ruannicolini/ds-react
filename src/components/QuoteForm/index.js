@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from 'react-scroll';
 
 import salgadoImage from '../../assets/salgado.png';
 import { WhatsappButton } from '../../components/Form/WhatsappButton';
@@ -114,7 +115,7 @@ export function QuoteForm({textContent, ...props}) {
                             
                         })}
 
-                        { !quoteRequestText && <p>Parece que você ainda não escolheu produtos, <a href="#combo" className="quote-form__voltarAoCombo" >Click aqui!</a></p> }
+                        { !quoteRequestText && <p>Parece que você ainda não escolheu produtos, <Link className="quote-form__voltarAoCombo" to="combo" spy={true} smooth={true} duration={500}>Click aqui!</Link></p> }
 
                         { (quoteRequestText && !formValidate) && <p className="quote-form__info-error" >Informe todos os dados acima para prosseguir</p> }
 
