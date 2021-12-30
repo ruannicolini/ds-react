@@ -1,0 +1,25 @@
+.sticky-text-bar {
+    position: fixed;
+    padding: 14px 8px;
+    display: block;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: var(--second-color);
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #853293;
+    border-bottom: 1px solid #f9f5f8;
+    z-index: 999;
+    //animate
+    transition: .6s ease-in-out;
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.animeTop {
+    transform: translateY(0);
+    opacity: 1;
+}
