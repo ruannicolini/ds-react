@@ -57,7 +57,7 @@ export function QuoteProducts({textContent}) {
                     }) }
                 </Swiper>
 
-                <div className="quote-products__total">{(total && (total > 0)) ? 'Total: ' + (new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL'}).format(total)) : ' ' }</div>
+                <div className="quote-products__total">{(total && (total > 0)) ? 'Valor: ' + (new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL'}).format(total)) : ' ' }</div>
 
             </div>
         </div>

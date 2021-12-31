@@ -73,6 +73,17 @@
         color: brown;
     }
 
+    &__info-total{
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 20px;
+        color: #000;
+        span { 
+            font-weight: bold;
+            color: #7070f7;
+        }
+    }
+
     @media (min-width:769px) {
 
         background: var(--third-background);

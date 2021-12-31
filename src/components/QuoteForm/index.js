@@ -4,6 +4,7 @@ import { Link } from 'react-scroll';
 import salgadoImage from '../../assets/salgado.png';
 import { WhatsappButton } from '../../components/Form/WhatsappButton';
 import { Input } from '../../components/Form/Input';
+import { Checkbox } from '../../components/Form/Checkbox';
 import { PaymentSelect } from '../Form/PaymentSelect';
 import { useQuotes } from '../../hooks/useQuote';
 
@@ -19,7 +20,9 @@ export function QuoteForm({textContent, ...props}) {
 
     const { quoteRequestText, total } = useQuotes();
     
-    const { heading, inputs, buttonText, whatsappNumber, defaultPaymentMethod } = textContent;
+    const { heading, inputs, buttonText, whatsappNumber, defaultPaymentMethod, taxaEntrega } = textContent;
+
+    const checkboxRetirarNoLocalName = "Retirar no local";
 
     useEffect( () => {
     
@@ -40,6 +43,7 @@ export function QuoteForm({textContent, ...props}) {
                     aux[inp] =  (lastOrderData && lastOrderData[inp]) ? lastOrderData[inp] : "";
                 }
             });
+            aux[checkboxRetirarNoLocalName] = false;
             setFormData(aux);
         }
     }, [] );
@@ -65,6 +69,9 @@ export function QuoteForm({textContent, ...props}) {
         let productText = quoteRequestText;
 
         if(productText) {
+
+            let valorFinal = (formData[checkboxRetirarNoLocalName]) ? total : (total + Number(taxaEntrega));
+
             message = 'Olá, gostaria de fazer um pedido!  \n\n';
 
             message += "*Itens* \n";
@@ -73,7 +80,8 @@ export function QuoteForm({textContent, ...props}) {
 
             message += ' \n';
 
-            message += '>> Valor Total: *' + (new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL'}).format(total)) + '* <<';
+            message += '>> Valor Total: *' + (new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL'}).format(valorFinal)) + '* <<';
+            message += ( (formData[checkboxRetirarNoLocalName]) ? "" : "\nvalor inclui taxa de entrega");
 
             message += ' \n\n';
 
@@ -85,6 +93,7 @@ export function QuoteForm({textContent, ...props}) {
             message += "Endereço: " + formData["Endereço de Entrega"] + "\n";
             message += (formData["Ponto de Referência"]) ? ("Ponto de Referência: " + formData["Ponto de Referência"] + "\n") : '';
             message += "Forma de Pagamento: " + formData["Forma de Pagamento"] + "\n";
+            message += "Retirar no Local: " + ((formData[checkboxRetirarNoLocalName]) ? "Sim" : "Não") + "\n";
         }
 
         let whatsappMessage = window.encodeURIComponent(message);
@@ -114,6 +123,10 @@ export function QuoteForm({textContent, ...props}) {
                             }
                             
                         })}
+
+                        { (quoteRequestText && formValidate) && <p className="quote-form__info-total"> Valor <span>{(new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL'}).format(total))}</span> {(!formData[checkboxRetirarNoLocalName]) && <> + (taxa de entrega: <span>{(new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL'}).format(Number(taxaEntrega)) )}</span>)</> }</p> }
+
+                        { (quoteRequestText && formValidate) && <Checkbox name={checkboxRetirarNoLocalName} value={formData[checkboxRetirarNoLocalName]} formData={formData} setFormData={setFormData} taxaEntrega={taxaEntrega} /> }
 
                         { !quoteRequestText && <p>Parece que você ainda não escolheu produtos, <Link className="quote-form__voltarAoCombo" to="combo" spy={true} smooth={true} duration={500}>Click aqui!</Link></p> }
 

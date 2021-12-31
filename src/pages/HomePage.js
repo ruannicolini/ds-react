@@ -21,6 +21,7 @@ export function HomePage(props) {
                 inputs: ["Nome", "Data de Entrega", "Hora", "Endereço de Entrega", "Ponto de Referência", "Forma de Pagamento"],
                 whatsappNumber: "5527997506865",
                 defaultPaymentMethod: "Dinheiro",
+                taxaEntrega: "2",
                 buttonText: "Enviar" 
             }
         },
