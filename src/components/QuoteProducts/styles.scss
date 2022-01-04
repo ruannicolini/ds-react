@@ -73,5 +73,9 @@
     .swiper-slide-shadow {
         border-radius: 18px;
     }
+    
+    .swiper-3d .swiper-wrapper {
+        -moz-transform-style: unset;
+    }
 
 }
