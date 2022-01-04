@@ -6,9 +6,6 @@ import FeatureRowImage from '../assets/mascot.png';
 
 export function HomePage(props) {
 
-
-    console.log('window.location.pathname == ', window.location);
-
     const textContent = {
         featureRow: {
             heading: "Entre em contato conosco",
@@ -22,7 +19,7 @@ export function HomePage(props) {
             form: {
                 heading: "Envie seu pedido pelo whatsapp!",
                 inputs: ["Nome", "Data de Entrega", "Hora", "Endereço de Entrega", "Ponto de Referência", "Forma de Pagamento"],
-                whatsappNumber: (window.location.href.indexOf("www.disalgados.com.br") > -1) ? "5533999378423" : "5527997506865",
+                whatsappNumber: (window.location.href.indexOf("disalgados.com.br") > -1) ? "5533999378423" : "5527997506865",
                 defaultPaymentMethod: "Dinheiro",
                 taxaEntrega: "2",
                 buttonText: "Enviar" 
