@@ -119,18 +119,17 @@ export function QuoteForm({textContent, ...props}) {
                             if (inp=="Forma de Pagamento"){
                                 return <PaymentSelect key={inp} name={inp} value={formData[inp]} formData={formData} setFormData={setFormData} />
                             }else{
-                                return <Input key={inp} name={inp} value={formData[inp]} formData={formData} setFormData={setFormData} />
+                                return <Input key={inp} name={inp} value={formData[inp]} formData={formData} setFormData={setFormData} quoteRequestText={quoteRequestText}/>
                             }
-                            
                         })}
 
-                        { (quoteRequestText && formValidate) && <p className="quote-form__info-total"> Valor <span>{(new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL'}).format(total))}</span> {(!formData[checkboxRetirarNoLocalName]) && <> + (taxa de entrega: <span>{(new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL'}).format(Number(taxaEntrega)) )}</span>)</> }</p> }
+                        { (quoteRequestText && formValidate) && <p className="quote-form__info-total"> Valor <span>{(new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL'}).format(total))}</span> {(!formData[checkboxRetirarNoLocalName]) && <> + taxa de entrega: <span>{(new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL'}).format(Number(taxaEntrega)) )}</span></> }</p> }
 
                         { (quoteRequestText && formValidate) && <Checkbox name={checkboxRetirarNoLocalName} value={formData[checkboxRetirarNoLocalName]} formData={formData} setFormData={setFormData} taxaEntrega={taxaEntrega} /> }
 
-                        { !quoteRequestText && <p>Parece que você ainda não escolheu produtos, <Link className="quote-form__voltarAoCombo" to="combo" spy={true} smooth={true} duration={500}>Click aqui!</Link></p> }
+                        { !quoteRequestText && <p className="quote-form__info-click">Parece que você ainda não escolheu produtos, <Link className="quote-form__voltarAoCombo" to="combo" spy={true} smooth={true} duration={500}>Click aqui!</Link></p> }
 
-                        { (quoteRequestText && !formValidate) && <p className="quote-form__info-error" >Informe todos os dados acima para prosseguir</p> }
+                        { (quoteRequestText && !formValidate) && <p className="quote-form__info-error">Atenção: informe todos os dados acima para prosseguir</p> }
 
                         <WhatsappButton label={buttonText} whatsappNumber={whatsappNumber} text={whatsappText} formValidate={formValidate} />
 
