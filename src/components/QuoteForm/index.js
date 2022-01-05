@@ -88,7 +88,7 @@ export function QuoteForm({textContent, ...props}) {
             message += "*Informações* \n";
 
             message += "Nome: " + formData["Nome"] + "\n";
-            message += "Data: " + (new Intl.DateTimeFormat('pt-BR').format( new Date(formData["Data de Entrega"]))) + "\n";
+            message += "Data: " + ((formData["Data de Entrega"]) ? (new Intl.DateTimeFormat('pt-BR').format( new Date(formData["Data de Entrega"] + 'T00:00'))) : '') + "\n";
             message += "Hora: " + formData["Hora"] + "\n";
             message += "Endereço: " + formData["Endereço de Entrega"] + "\n";
             message += (formData["Ponto de Referência"]) ? ("Ponto de Referência: " + formData["Ponto de Referência"] + "\n") : '';
