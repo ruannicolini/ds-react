@@ -10,7 +10,7 @@ function App() {
       <Header/>
       <HomePage/>
       <Footer/>
-      <ExternalScripts/>
+      {/* <ExternalScripts/> */}
     </>
   );
 }
