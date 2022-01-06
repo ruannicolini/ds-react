@@ -1,4 +1,4 @@
-import { useEffect } from "react/cjs/react.development";
+import { useEffect } from "react";
 
 const hotjarScript = 
 "(function(h,o,t,j,a,r){"
