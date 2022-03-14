@@ -26,6 +26,7 @@
 
     &__items {
         display: flex;
+        position: relative;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -38,6 +39,10 @@
         min-height: 20px;
         color: #c780c7;
         font-weight: bold;
+    }
+
+    &-loader {
+        position: absolute;
     }
     
     @media (min-width:769px) {

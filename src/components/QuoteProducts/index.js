@@ -4,6 +4,8 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import SwiperCore, {EffectCards, Keyboard } from 'swiper';
 import { cssVar, tint } from 'polished';
 
+import { RotatingLines } from  'react-loader-spinner'
+
 import { ProductCard } from '../ProductCard';
 import { useQuotes } from '../../hooks/useQuote';
 import { StickyTextBar } from '../StickyTextBar'
@@ -18,7 +20,7 @@ export function QuoteProducts({textContent}) {
 
     const { heading, subHeading } = textContent;
 
-    const { products, total } = useQuotes();
+    const { products, total, loading } = useQuotes();
 
     SwiperCore.use([EffectCards]);
 
@@ -38,6 +40,7 @@ export function QuoteProducts({textContent}) {
             </div>
             
             <div className="quote-products__items" ref={refCardItems}>
+                { loading && <div className="quote-products-loader"><RotatingLines width="100" strokeColor="var(--first-color)"/></div> }
                 <Swiper 
                     effect={'cards'} 
                     grabCursor={true} 

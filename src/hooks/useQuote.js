@@ -14,6 +14,8 @@ export function QuoteProvider({children}) {
 
     const [quoteRequestText, setQuoteRequestText] = useState();
 
+    const [loading, setLoading] = useState(false);
+
     const buildProductText = () => {
 
         let quoteString = "";
@@ -37,9 +39,12 @@ export function QuoteProvider({children}) {
 
     useEffect( async () => {
         try {
+            setLoading(true);
             setProducts(await getProducts());
         } catch (e) {
             console.log("Error on getProducts:", e);
+        } finally {
+            setLoading(false);
         }
     }, []);
 
@@ -76,7 +81,7 @@ export function QuoteProvider({children}) {
     }
 
     return(
-        <QuoteContext.Provider value={{ quotes, total, updateQty, products, quoteRequestText}}>
+        <QuoteContext.Provider value={{ quotes, total, updateQty, products, loading, quoteRequestText}}>
             {children}
         </QuoteContext.Provider>
     )
